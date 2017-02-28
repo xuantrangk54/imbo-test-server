@@ -108,14 +108,18 @@ class ImageTransformationCache implements ListenerInterface {
         // Generate the full file path to the response
         $path = $this->getCacheFilePath($request);
         
-        error_log("xuantrangPro".$path);
+        
         if (is_file($path)) {
 
-            $fp = fopen($name, 'rb');
-            $event->stopPropagation();
-            $response->setModel($fp);
+            #$fp = fopen($name, 'rb');
+            #$response->setModel($fp);
+            #$event->stopPropagation();
+            #return;
+
 
             $data = @unserialize(file_get_contents($path));
+
+            error_log("xuantrangPro".$data);
             // Make sure the data from the cache is valid
             if (
                 is_array($data) &&
