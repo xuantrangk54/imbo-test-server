@@ -88,7 +88,7 @@ class Router {
 
         $path = $request->getPathInfo();
         
-	error_log ('xt_test:path_is:'.$path);
+	#error_log ('xt_test:path_is:'.$path);
 	$matches = [];
 
         foreach ($this->routes as $resourceName => $route) {
