@@ -105,11 +105,15 @@ class ImageTransformationCache implements ListenerInterface {
         $request = $event->getRequest();
         $response = $event->getResponse();
 
+
+        
+
         // Generate the full file path to the response
         $path = $this->getCacheFilePath($request);
         
         
         if (is_file($path)) {
+            error_log('xoa');
 
             #$fp = fopen($name, 'rb');
             #$response->setModel($fp);
@@ -122,8 +126,8 @@ class ImageTransformationCache implements ListenerInterface {
 
 
             $data = @unserialize(file_get_contents($path));
-             error_log("xuantrangPro". $data['headers']);
-             
+             #error_log("xuantrangPro". $data['headers']);
+
             // Make sure the data from the cache is valid
             if (
                 is_array($data) &&
@@ -135,9 +139,6 @@ class ImageTransformationCache implements ListenerInterface {
                 // Mark as cache hit
                 $data['headers']->set('X-Imbo-TransformationCache', 'Hit');
                 $data['image']->hasBeenTransformed(false);
-
-
-
 
                 // Replace all headers and set the image model
                 $response->headers = $data['headers'];
