@@ -124,10 +124,12 @@ class ImageTransformationCache implements ListenerInterface {
             #$contents = fread($file, filesize($filename));
             #fclose($file);
 
+            $this->cacheHit = true;
+            $event->stopPropagation();
             error_log('xoa');
             return;
 
-              error_log('xoa1');
+
             $data = @unserialize(file_get_contents($path));
              #error_log("xuantrangPro". $data['headers']);
 
@@ -151,6 +153,7 @@ class ImageTransformationCache implements ListenerInterface {
                 $response->setModel($data['image']);
 
                 // Stop other listeners on this event
+                
                 $event->stopPropagation();
 
                 // Mark this as a cache hit to prevent us from re-writing the result
