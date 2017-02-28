@@ -112,9 +112,8 @@ class ImageTransformationCache implements ListenerInterface {
         $path = $this->getCacheFilePath($request);
         
         
-        if (is_file($path)) {
             error_log('xoa');
-
+            return;
             #$fp = fopen($name, 'rb');
             #$response->setModel($fp);
             #$event->stopPropagation();
