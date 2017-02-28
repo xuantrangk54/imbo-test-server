@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+    # Servername of the virtual host
+    ServerName imbo
+
+    # Define aliases to use multiple hosts
+    # ServerAlias imbo1 imbo2 imbo3
+
+    # Document root where the index.php file is located
+    DocumentRoot /path/to/install/vendor/imbo/imbo/public
+
+    # Logging
+    # CustomLog /var/log/apache2/imbo.access_log combined
+    # ErrorLog /var/log/apache2/imbo.error_log
+
+    # Rewrite rules that rewrite all requests to the index.php script
+    <Directory /path/to/install/vendor/imbo/imbo/public>
+        RewriteEngine on
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule .* index.php
+    </Directory>
+</VirtualHost>
