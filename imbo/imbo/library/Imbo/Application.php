@@ -162,7 +162,7 @@ class Application {
                 $params = [];
             }
 
-            $x1 = implode($listener::getSubscribedEvents());
+            #$x1 = implode($listener::getSubscribedEvents());
             #error_log('ApplicationPhp165:'.$x1);
             $eventManager->addEventHandler($listener, $listener, $params)
                          ->addCallbacks($listener, $listener::getSubscribedEvents());
