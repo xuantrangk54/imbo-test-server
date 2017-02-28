@@ -110,8 +110,12 @@ class ImageTransformationCache implements ListenerInterface {
         
         error_log("xuantrangPro".$path);
         if (is_file($path)) {
-            $data = @unserialize(file_get_contents($path));
 
+            $fp = fopen($name, 'rb');
+            $event->stopPropagation();
+            $response->setModel($fp);
+
+            $data = @unserialize(file_get_contents($path));
             // Make sure the data from the cache is valid
             if (
                 is_array($data) &&
