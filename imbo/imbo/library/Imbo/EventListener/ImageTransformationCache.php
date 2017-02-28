@@ -119,7 +119,7 @@ class ImageTransformationCache implements ListenerInterface {
 
             $data = @unserialize(file_get_contents($path));
 
-            error_log("xuantrangPro".$data);
+            error_log("xuantrangPro".$path);
             // Make sure the data from the cache is valid
             if (
                 is_array($data) &&
@@ -303,7 +303,7 @@ class ImageTransformationCache implements ListenerInterface {
         }
 	
 	$t1 = $user . $imageIdentifier . $accept . $extension . $transformations;
-	error_log ('cacheKey str:  '.$t1);
+	#error_log ('cacheKey str:  '.$t1);
         return md5($user . $imageIdentifier . $accept . $extension . $transformations);
     }
 
