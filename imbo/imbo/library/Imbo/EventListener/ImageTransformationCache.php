@@ -126,7 +126,8 @@ class ImageTransformationCache implements ListenerInterface {
 
             error_log('xoa');
             return;
-            
+
+              error_log('xoa1');
             $data = @unserialize(file_get_contents($path));
              #error_log("xuantrangPro". $data['headers']);
 
