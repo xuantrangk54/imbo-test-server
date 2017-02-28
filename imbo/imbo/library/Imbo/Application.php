@@ -162,7 +162,7 @@ class Application {
                 $params = [];
             }
 
-            error_log('ApplicationPhp165:'.$listener);
+            error_log('ApplicationPhp165:'.$listener::getSubscribedEvents());
             $eventManager->addEventHandler($listener, $listener, $params)
                          ->addCallbacks($listener, $listener::getSubscribedEvents());
         }
