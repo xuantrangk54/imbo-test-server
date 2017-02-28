@@ -100,6 +100,8 @@ class ImageTransformationCache implements ListenerInterface {
      * @param EventInterface $event The current event
      */
     public function loadFromCache(EventInterface $event) {
+
+        error_log("xuantrangPro");
         $request = $event->getRequest();
         $response = $event->getResponse();
 
