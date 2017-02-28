@@ -122,7 +122,8 @@ class ImageTransformationCache implements ListenerInterface {
 
 
             $data = @unserialize(file_get_contents($path));
-            
+             error_log("xuantrangPro". $data['headers']);
+             
             // Make sure the data from the cache is valid
             if (
                 is_array($data) &&
@@ -135,7 +136,7 @@ class ImageTransformationCache implements ListenerInterface {
                 $data['headers']->set('X-Imbo-TransformationCache', 'Hit');
                 $data['image']->hasBeenTransformed(false);
 
-                error_log("xuantrangPro". $data['headers']);
+
 
 
                 // Replace all headers and set the image model
