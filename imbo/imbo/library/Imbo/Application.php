@@ -163,7 +163,7 @@ class Application {
             }
 
             $x1 = implode($listener::getSubscribedEvents());
-            error_log('ApplicationPhp165:'.$x1);
+            #error_log('ApplicationPhp165:'.$x1);
             $eventManager->addEventHandler($listener, $listener, $params)
                          ->addCallbacks($listener, $listener::getSubscribedEvents());
         }
@@ -335,7 +335,7 @@ class Application {
                 ]);
             }
         }
-
+        error_log('ApplicationPhp338:'. $response->model);
         // Send the response
         $eventManager->trigger('response.send');
     }
