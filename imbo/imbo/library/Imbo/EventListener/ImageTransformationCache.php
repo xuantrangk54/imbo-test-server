@@ -101,13 +101,14 @@ class ImageTransformationCache implements ListenerInterface {
      */
     public function loadFromCache(EventInterface $event) {
 
-        error_log("xuantrangPro");
+        #error_log("xuantrangPro");
         $request = $event->getRequest();
         $response = $event->getResponse();
 
         // Generate the full file path to the response
         $path = $this->getCacheFilePath($request);
-
+        
+        error_log("xuantrangPro".$path);
         if (is_file($path)) {
             $data = @unserialize(file_get_contents($path));
 
