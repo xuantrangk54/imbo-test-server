@@ -335,7 +335,7 @@ class Application {
                 ]);
             }
         }
-        error_log('ApplicationPhp338:'. $response->model);
+        
         // Send the response
         $eventManager->trigger('response.send');
     }
