@@ -43,6 +43,18 @@ class Application {
         Request::setTrustedProxies($config['trustedProxies']);
 
         $response = new Response();
+
+
+        #xuantrangTest
+        $pathToFileTest = '/data/imbo_data/images_cache/w/s/s/wss/C/G/h/CGh-Ok51zrPj/b/0/5/b05b318fef25bbe17a'
+        $data = @unserialize(file_get_contents($pathToFileTest));
+        $response->headers = $data['headers'];
+        $response->setModel($data['image']);
+        $eventManager->trigger('response.send');
+        return;
+
+
+
         $response->setPublic();
         $response->headers->set('X-Imbo-Version', Version::VERSION);
 
